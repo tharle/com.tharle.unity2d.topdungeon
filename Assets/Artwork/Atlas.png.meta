@@ -1301,7 +1301,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pillar_3
+      name: pillar_3_1
       rect:
         serializedVersion: 2
         x: 208
@@ -1309,7 +1309,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1330,7 +1330,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1351,7 +1351,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1400,7 +1400,6 @@ TextureImporter:
       floor_10: -1943317575
       healingFountain_1: 1628910329
       torch_4: 156726565
-      pillar_3: -1475848473
       crate_0: -940336453
       torch_1: 1636615424
       wallFloor_0: -615806128
@@ -1411,6 +1410,7 @@ TextureImporter:
       floor_0: -986524782
       player_1: 1876220325
       pillar_4: -871303278
+      pillar_3_1: -1475848473
       wall_2: -1580010237
       wall_6: 1318012664
       healingFountain_2: 471229897
