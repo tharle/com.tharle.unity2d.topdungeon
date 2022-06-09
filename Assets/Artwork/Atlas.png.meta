@@ -1305,7 +1305,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 208
-        y: 66
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -1326,7 +1326,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 208
-        y: 50
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -1347,7 +1347,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 208
-        y: 34
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1363,6 +1363,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: chest_0
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a8116e110a8d3a42a2da0dafffc0027
+      internalID: -971239023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chest_1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85ce3a717c271a145b48b9ad71306e36
+      internalID: 1033669337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chest_2
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd5f1f313bc53084cb0fc3b7ee21068f
+      internalID: -1023018430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1374,8 +1437,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      chest_2: -1023018430
       wall_11: 1750700168
       pillar_1: -670474320
+      chest_0: -971239023
       wall_0: -461204286
       torch_0: 2083333897
       stairs_1: -126190438
@@ -1399,6 +1464,7 @@ TextureImporter:
       floor_2: 964045711
       floor_10: -1943317575
       healingFountain_1: 1628910329
+      chest_1: 1033669337
       torch_4: 156726565
       crate_0: -940336453
       torch_1: 1636615424
