@@ -13,6 +13,7 @@ public class Chest : Collectable
             collected = true;
             GetComponent<SpriteRenderer>().sprite = emptyChestSprite;
             string txtPesosAmount = pesosAmount > 1 ? "pesos" : "peso";
+            GameManager.instance.pesos += pesosAmount;
             Debug.Log($"Grant {pesosAmount} {txtPesosAmount}!");
         }
     }
