@@ -30,11 +30,17 @@ public class GameManager : MonoBehaviour
 
     // References
     public Player player;
-    // Weapon...
+    //TODO Weapon...
+    public FloatingTextManager FloatingTextManager;
 
     // Logic
     public int pesos;
     public int experience;
+
+    public void ShowText(string message, int fontSize, Color color,  Vector3 position, Vector3 motion, float duration)
+    {
+        FloatingTextManager.Show(message, fontSize, color, position, motion, duration);
+    }
 
     // Save game
     /*
