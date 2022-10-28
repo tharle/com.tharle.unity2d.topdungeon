@@ -7,10 +7,12 @@ public class Collectable : Collidable
 {
     // Logic 
     protected bool collected;
+    
+    public string tagCollectable;
 
     protected override void OnCollide(Collider2D coll)
     {
-        if (coll.name == "Player") OnCollect();
+        if (coll.CompareTag(tagCollectable)) OnCollect();
     }
 
     protected virtual void OnCollect()

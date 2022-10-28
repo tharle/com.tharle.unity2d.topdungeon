@@ -138,5 +138,6 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  tagCollectable: Player
   emptyChestSprite: {fileID: 1033669337, guid: 3bbf65e376f22924bab36dae74dcd34f, type: 3}
   pesosAmount: 5
