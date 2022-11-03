@@ -1582,7 +1582,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1590,6 +1590,69 @@ TextureImporter:
       bones: []
       spriteID: c9d45bf50ceccc4428f5989e8327ba74
       internalID: 1476731806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chest_3
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7146f51c8e83444d9d746b8d62aa8ad
+      internalID: -1458602641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chest_4
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db61227f97f9d8245a75088d31f6a744
+      internalID: -562956014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chest_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a69bf269ef91e434cabf7ee62d3bd1bf
+      internalID: -1507694958
       vertices: []
       indices: 
       edges: []
@@ -1605,7 +1668,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      wall_12: 1321667007
+      chest_2: -1023018430
       wall_11: 1750700168
       pillar_1: -670474320
       chest_0: -971239023
@@ -1638,6 +1701,7 @@ TextureImporter:
       chest_1: 1033669337
       enemy_0: 1476731806
       torch_4: 156726565
+      chest_5: -1507694958
       weapon_5: -2017032848
       crate_0: -940336453
       torch_1: 1636615424
@@ -1654,7 +1718,9 @@ TextureImporter:
       pillar_3_1: -1475848473
       wall_2: -1580010237
       wall_6: 1318012664
+      chest_3: -1458602641
       healingFountain_2: 471229897
+      chest_4: -562956014
       wallFloor_3: 381496850
       floor_8: 1610239197
       floor_11: -1882024778
@@ -1676,7 +1742,7 @@ TextureImporter:
       wall_7: -496043270
       weapon_6: 1983291302
       crate_1: -828544396
-      chest_2: -1023018430
+      wall_12: 1321667007
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
