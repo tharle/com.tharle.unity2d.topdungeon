@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
 
         instance = this;
         SceneManager.sceneLoaded += LoadState; // All time will save the game when Load one Scene
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     // References
     public Player player;
-    //TODO Weapon...
+    public Weapon weapon;
     public FloatingTextManager FloatingTextManager;
 
     // Logic
@@ -40,6 +40,20 @@ public class GameManager : MonoBehaviour
     public void ShowText(string message, int fontSize, Color color,  Vector3 position, Vector3 motion, float duration)
     {
         FloatingTextManager.Show(message, fontSize, color, position, motion, duration);
+    }
+
+    // Upgrade Weapon
+    public bool TryUpgradeWeapon()
+    {
+        // is the Weapon max level?
+        if (weaponPrices.Count <= weapon.weaponLevel) return false;
+
+        // has the PESOS enough? 
+        if (pesos < weaponPrices[weapon.weaponLevel]) return false;
+
+        pesos -= weaponPrices[weapon.weaponLevel];
+        weapon.UpgradeWeapon();
+        return true;
     }
 
     // Save game
@@ -55,7 +69,7 @@ public class GameManager : MonoBehaviour
         save +=  "0" + "|";
         save += pesos.ToString() + "|";
         save += experience.ToString() + "|";
-        save += "0";
+        save += weapon.weaponLevel.ToString();
         PlayerPrefs.SetString("SaveState", save);
 
         Debug.Log("Save with sucess!");
@@ -70,7 +84,7 @@ public class GameManager : MonoBehaviour
         //TODO change player skin
         pesos = int.Parse(data[1]);
         experience = int.Parse(data[2]);
-        //TODO change lvl Weapon
+        weapon.SetWeapon(int.Parse(data[3]));
 
         Debug.Log("The state was loaded!");
     }
