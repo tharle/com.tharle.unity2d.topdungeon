@@ -72,8 +72,8 @@ public class Emeny : Mover
 
     protected override void Death()
     {
-        GameManager.instance.experience += xpValue;
         GameManager.instance.ShowText($"+{xpValue} xp", 30, Color.magenta, transform.position, Vector3.up * 40, 1f);
+        GameManager.instance.GrantXP(xpValue);
         Destroy(gameObject);
     }
 }

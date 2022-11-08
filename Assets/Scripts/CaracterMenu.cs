@@ -38,6 +38,7 @@ public class CaracterMenu : MonoBehaviour
     private void OnSelectionChanged()
     {
         characterSelectionSprite.sprite = GameManager.instance.playerSprites[currentCharacterSelection];
+        GameManager.instance.player.SwapSprite(currentCharacterSelection);
     }
 
     // Weapon Upgrade
@@ -56,13 +57,30 @@ public class CaracterMenu : MonoBehaviour
         else upgradeCoastText.text = GameManager.instance.weaponPrices[GameManager.instance.weapon.weaponLevel].ToString();
 
         // Meta
-        hitpointText.text = GameManager.instance.player.hitpoint.ToString();
+        hitpointText.text = GameManager.instance.player.hitpoint.ToString() + " / " + GameManager.instance.player.maxHitpoint.ToString();
         pesosText.text = GameManager.instance.pesos.ToString();
-        levelText.text = "NAN";
+        var level = GameManager.instance.GetCurrentLevel();
+        levelText.text = level.ToString();
 
         // XP BAR
-        xpText.text = "NAN";
-        xpBar.localScale = new Vector3(.5f, xpBar.localScale.y, xpBar.localScale.z);
+        float completionRatio;
+        string xpDescription;
+        if (level == GameManager.instance.xpTable.Count)
+        {
+            xpDescription = GameManager.instance.experience.ToString() + " total experience points";
+            completionRatio = 1f;
+        }
+        else
+        {
+            int prevLevelXp = GameManager.instance.GetXpToLevel(level - 1);
+            int xpNextLevel = GameManager.instance.xpTable[level - 1];
+
+            int currLevelXp = GameManager.instance.experience - prevLevelXp;
+            completionRatio = (float)currLevelXp / (float)xpNextLevel;
+            xpDescription = currLevelXp.ToString() + " / " + xpNextLevel.ToString();
+        }
+        xpBar.localScale = new Vector3(completionRatio, xpBar.localScale.y, xpBar.localScale.z);
+        xpText.text = xpDescription;
 
     }
 }

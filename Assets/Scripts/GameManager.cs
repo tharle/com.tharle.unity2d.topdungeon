@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,25 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    
+
+    // Ressources
+    public List<Sprite> playerSprites;
+    public List<Sprite> weaponSprites;
+    public List<int> weaponPrices;
+    public List<int> xpTable;
+
+    // References
+    public Weapon weapon;
+    public FloatingTextManager FloatingTextManager;
+    public Player player;
+
+    // Logic
+    public int pesos;
+    public int experience;
+
     private void Awake()
     {
-        if(GameManager.instance != null) // We need just one GameManager
+        if (GameManager.instance != null) // We need just one GameManager
         {
             Destroy(gameObject);
             return;
@@ -21,21 +37,6 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += LoadState; // All time will save the game when Load one Scene
         DontDestroyOnLoad(gameObject);
     }
-
-    // Ressources
-    public List<Sprite> playerSprites;
-    public List<Sprite> weaponSprites;
-    public List<int> weaponPrices;
-    public List<int> xpTable;
-
-    // References
-    public Player player;
-    public Weapon weapon;
-    public FloatingTextManager FloatingTextManager;
-
-    // Logic
-    public int pesos;
-    public int experience;
 
     public void ShowText(string message, int fontSize, Color color,  Vector3 position, Vector3 motion, float duration)
     {
@@ -54,6 +55,54 @@ public class GameManager : MonoBehaviour
         pesos -= weaponPrices[weapon.weaponLevel];
         weapon.UpgradeWeapon();
         return true;
+    }
+
+    // Experience System
+    public int GetCurrentLevel()
+    {
+        int level = 0;
+        int xpPerLevel = 0;
+
+        while(experience >= xpPerLevel && level <= xpTable.Count)
+        {
+            xpPerLevel += xpTable[level];
+            level++;
+        }
+
+        return level;
+    }
+
+    // Total XP for get a level
+    public int GetXpToLevel(int level)
+    {
+        int levelInteration = 0;
+        int xp = 0;
+
+        while(levelInteration < level) xp += xpTable[levelInteration++];
+
+        return xp;
+
+    }
+
+    public void GrantXP(int xp)
+    {
+        int currLevel = GetCurrentLevel();
+        experience += xp;
+        int nextLevel = GetCurrentLevel();
+        if (currLevel < nextLevel) 
+        {
+            OnLevelUp();
+        }
+    }
+
+    private void OnLevelUp()
+    {
+        int currLevel = GetCurrentLevel();
+        Debug.Log($"You level up to {currLevel}");
+        ShowText($"You level up to {currLevel}", 35, Color.cyan, player.transform.position, Vector3.up * 40, 2f);
+        player.OnLevelUp();
+
+
     }
 
     // Save game
@@ -85,6 +134,7 @@ public class GameManager : MonoBehaviour
         pesos = int.Parse(data[1]);
         experience = int.Parse(data[2]);
         weapon.SetWeapon(int.Parse(data[3]));
+        player.SetLevel(GetCurrentLevel());
 
         Debug.Log("The state was loaded!");
     }
