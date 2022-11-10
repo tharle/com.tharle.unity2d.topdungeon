@@ -27,9 +27,9 @@ public class GameManager : MonoBehaviour
     {
         if (GameManager.instance != null) // We need just one GameManager
         {
+            if (player != null) Destroy(player.gameObject);
+            if (floatingTextManager != null) Destroy(floatingTextManager.gameObject);
             Destroy(gameObject);
-            Destroy(player.gameObject);
-            Destroy(floatingTextManager.gameObject);
             return;
         }
 

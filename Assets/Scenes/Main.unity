@@ -604,6 +604,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95726191}
   m_CullTransparentMesh: 1
+--- !u!114 &215095330 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8767599819031818862, guid: fdf3b10d8607faf48a91532214651e3c, type: 3}
+  m_PrefabInstance: {fileID: 8767599818834075530}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 103f0cd579b143e46b084a6aeb82b9aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &220402060
 GameObject:
   m_ObjectHideFlags: 0
@@ -5168,7 +5179,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572487609}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -14267,7 +14278,7 @@ MonoBehaviour:
   weaponPrices: 3200000064000000c8000000900100002003000040060000
   xpTable: 050000000a0000000f00000019000000280000004100000069000000aa0000001301000090010000
   weapon: {fileID: 779481960}
-  floatingTextManager: {fileID: 0}
+  floatingTextManager: {fileID: 215095330}
   player: {fileID: 59118823635139707}
   pesos: 0
   experience: 0
