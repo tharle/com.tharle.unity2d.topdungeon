@@ -35,7 +35,7 @@ public class Emeny : Mover
         // Is player in range?
         float distanceFromPlayer = Vector3.Distance(playerTransform.position, startingPosition);
 
-        Debug.Log($"{name} : Distance from player: {distanceFromPlayer}");
+        // Debug.Log($"{name} : Distance from player: {distanceFromPlayer}");
 
         if (distanceFromPlayer < chaseLenght)
         {

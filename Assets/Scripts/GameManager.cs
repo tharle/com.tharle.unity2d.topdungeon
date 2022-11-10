@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     // References
     public Weapon weapon;
-    public FloatingTextManager FloatingTextManager;
+    public FloatingTextManager floatingTextManager;
     public Player player;
 
     // Logic
@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
         if (GameManager.instance != null) // We need just one GameManager
         {
             Destroy(gameObject);
+            Destroy(player.gameObject);
+            Destroy(floatingTextManager.gameObject);
             return;
         }
 
@@ -40,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     public void ShowText(string message, int fontSize, Color color,  Vector3 position, Vector3 motion, float duration)
     {
-        FloatingTextManager.Show(message, fontSize, color, position, motion, duration);
+        floatingTextManager.Show(message, fontSize, color, position, motion, duration);
     }
 
     // Upgrade Weapon
