@@ -11,6 +11,11 @@ public class FloatingTextManager : MonoBehaviour
 
     private List<FloatingText> floatingTexts = new List<FloatingText>(); // pool of txt floatings
 
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Update()
     {
         floatingTexts.ForEach(floatingText => floatingText.UpdateFloatingText());

@@ -136,6 +136,8 @@ public class GameManager : MonoBehaviour
         weapon.SetWeapon(int.Parse(data[3]));
         player.SetLevel(GetCurrentLevel());
 
+        player.ToSpawnPoint();
+
         Debug.Log("The state was loaded!");
     }
 }

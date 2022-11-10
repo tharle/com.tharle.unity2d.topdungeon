@@ -16,6 +16,8 @@ public class Player : Mover
     {
         base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        DontDestroyOnLoad(gameObject);
     }
     private void FixedUpdate()
     {
@@ -40,5 +42,10 @@ public class Player : Mover
     {
         maxHitpoint = hpPerLevel;
         for (int i = 1; i < level; i++) OnLevelUp();
+    }
+
+    public void ToSpawnPoint()
+    {
+        transform.position = GameObject.Find("SpawnPoint").transform.position;
     }
 }
