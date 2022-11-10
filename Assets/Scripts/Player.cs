@@ -19,6 +19,7 @@ public class Player : Mover
 
         DontDestroyOnLoad(gameObject);
     }
+
     private void FixedUpdate()
     {
         float x = Input.GetAxisRaw("Horizontal");
@@ -47,5 +48,29 @@ public class Player : Mover
     public void ToSpawnPoint()
     {
         transform.position = GameObject.Find("SpawnPoint").transform.position;
+    }
+
+    public void Heal(int healingAmount)
+    {
+        var strHeal = doHeal(healingAmount);
+        GameManager.instance.ShowText(strHeal, 20, Color.green, transform.position, Vector3.up * 30, 1f);
+    }
+
+    private string doHeal(int healingAmount)
+    {
+        if (hitpoint >= maxHitpoint)
+        {
+            hitpoint = maxHitpoint;
+            return "MAX HP";
+        }
+
+        var oldHitpoint = hitpoint;
+        hitpoint += healingAmount;
+
+        hitpoint = hitpoint >= maxHitpoint ? maxHitpoint : hitpoint;
+        var trueHeal = hitpoint - oldHitpoint;
+
+        return "+" + trueHeal;
+
     }
 }
