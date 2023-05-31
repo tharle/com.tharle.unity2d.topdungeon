@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
     public Weapon weapon;
     public FloatingTextManager floatingTextManager;
     public Player player;
+    public RectTransform hitpointBar;
+    public GameObject hud;
+    public GameObject menu;
+
 
     // Logic
     public int pesos;
@@ -29,6 +33,9 @@ public class GameManager : MonoBehaviour
         {
             if (player != null) Destroy(player.gameObject);
             if (floatingTextManager != null) Destroy(floatingTextManager.gameObject);
+            if (hud != null) Destroy(hud);
+            if (menu != null) Destroy(menu);
+
             Destroy(gameObject);
             return;
         }
@@ -37,7 +44,6 @@ public class GameManager : MonoBehaviour
 
         instance = this;
         SceneManager.sceneLoaded += LoadState; // All time will save the game when Load one Scene
-        DontDestroyOnLoad(gameObject);
     }
 
     public void ShowText(string message, int fontSize, Color color,  Vector3 position, Vector3 motion, float duration)
@@ -57,6 +63,13 @@ public class GameManager : MonoBehaviour
         pesos -= weaponPrices[weapon.weaponLevel];
         weapon.UpgradeWeapon();
         return true;
+    }
+
+    // hit point bar
+    public void OnHitpointChange() 
+    {
+        float ratio = (float)player.hitpoint / (float)player.maxHitpoint;
+        hitpointBar.localScale = new Vector3(1, ratio, 1);
     }
 
     // Experience System

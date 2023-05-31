@@ -9,15 +9,19 @@ public class Player : Mover
 
     private SpriteRenderer spriteRenderer;
 
-    // number Per Level
+    // number Per Level.
     private int hpPerLevel = 5;
 
     protected override void Start()
     {
         base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
-        DontDestroyOnLoad(gameObject);
+    protected override void ReceiveDamage(Damage damage)
+    {
+        base.ReceiveDamage(damage);
+        GameManager.instance.OnHitpointChange();
     }
 
     private void FixedUpdate()
@@ -54,6 +58,7 @@ public class Player : Mover
     {
         var strHeal = doHeal(healingAmount);
         GameManager.instance.ShowText(strHeal, 20, Color.green, transform.position, Vector3.up * 30, 1f);
+        GameManager.instance.OnHitpointChange();
     }
 
     private string doHeal(int healingAmount)
@@ -73,4 +78,6 @@ public class Player : Mover
         return "+" + trueHeal;
 
     }
+
+
 }
